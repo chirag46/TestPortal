@@ -1,0 +1,80 @@
+<!-- currently this page is not used -->
+<!DOCTYPE html>
+<head>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+    <br/><br/><br/><br/><br/>
+    <div class="card">
+    <div class="card-header"><b>Employee Details</b></div>
+    <div class="card-body">
+    <p>
+      <div>
+      <h5 class="card-title">Employee Name: </h5>
+      <h5 class="card-title">Employee Email-ID: </h5>
+      <button class="btn btn-primary" id="newPassBtn">Change Password?</button>
+    </div>
+      <br/>
+
+      <div id="newPass" style="display:none">
+        <form class="form-signin needs-validation" novalidate oninput='confirmPassword.setCustomValidity(confirmPassword.value != newPassword.value ? true : false)'>
+          <div class="card shadow-sm">
+            <div class="card-body">
+        
+              <div class="form-group">
+                <label class="sr-only" for="oldPassword">Current Password</label>
+                <input class="form-control form-control-sm" id="oldPassword" name="password" placeholder="Current Password" required type="password" autocomplete="off" aria-describedby="inputGroupPrepend">
+                <div class="invalid-feedback">
+                  Please enter current password.
+                </div>
+              </div>
+        
+              <div class="form-group">
+                <div class="form-group">
+                  <label class="sr-only" for="newPassword">New Password</label>
+                  <div class="input-group">
+        
+                    <input name="newPassword" type="password" autocomplete="off" class="form-control form-control-sm" id="newPassword" placeholder="New Password" aria-describedby="inputGroupPrepend">
+                    <div class="invalid-feedback">
+                      Please enter new password.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="confirmPassword">Confirm Password</label>
+                <div class="input-group">
+        
+                  <input name="confirmPassword" type="password" autocomplete="off" class="form-control form-control-sm" id="confirmPassword" placeholder="Confirm Password" aria-describedby="inputGroupPrepend">
+                  <div class="invalid-feedback">
+                    Password not a match.
+                  </div>
+                </div>
+              </div>
+        
+              <button id="submitBtn" class="btn btn-md btn-primary btn-block" type="submit">Update</button>
+        
+            </div>
+          </div>
+        </form>
+    </p>
+    </div>
+
+    </div>
+  </div>
+</body>
+<script>
+const targetDiv = document.getElementById("newPass");
+const btn = document.getElementById("newPassBtn");
+btn.onclick = function () {
+    if (targetDiv.style.display !== "none") {
+        targetDiv.style.display = "none";
+    } else {
+        targetDiv.style.display = "block";
+    }
+};
+</script>
+</html>

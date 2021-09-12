@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" sizes="114x114" type="image/x-icon" href="https://1000logos.net/wp-content/uploads/2018/07/Telstra-Logo.png">
+	<title> Telstra Billing Portal</title>
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="/style.css" rel="stylesheet" type="text/css"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
+</head>
+<%- include('header'); -%>
+
+<body >
+<div class="container" style="z-index:2;">
+	<div class="col-md-12 ct-content">
+		<br/><br/><br/><br/><br/><br/>              
+		<form id="searchForm" action="">
+			<div class="row">
+				<div class="col-md-10 col-sm-12">
+					<input  name="q" class="search-page-search" id="search" placeholder="What are you looking for?" onkeyup="searchBar()" value="">
+				</div>
+				<div class="col-md-2 col-sm-12">
+					<input type="button" class="search-page-search-submit" value="Search" onclick="getInvoice()">
+				</div>
+			</div>
+		</form>
+		<br/>
+    <div id="table1 " class="scrollable-menu" > 
+      <table>  
+        <tbody id="tablebody">
+        </tbody> 
+      </table>
+      </div>
+      <br/>
+		<div class="dropdown">
+  <button class="dropbtn" id="display">Top billed Customers</button>
+  <div class="dropdown-content scrollable-menu" role="menu">
+        <table class="table">
+        <tbody>
+          <tr>
+            <td><b>Customer Name</b></td>
+            <td><b>Bill in Dollars</b></td>
+        </tr>
+        <%priceArray.forEach(slicedArray => {%>
+            <tr>
+                <td><%= slicedArray.companyName %></td>
+                <td><%= slicedArray.price %></td>
+            </tr>
+        <%})%>
+        </tbody>
+      </table>
+  </div>
+</div>	
+<div class="dropdown">
+<button class="dropbtn">Customers yet to pay bills</button>
+  <div class="dropdown-content scrollable-menu" role="menu">
+        <table class="table">
+        <tbody>
+          <td><b>Customer Name</b></td>
+          <td><b>Customer ID</b></td>
+        <%unpaidUsers.forEach(dataCombinedSliced => {%>
+            <tr>
+                <td><%= dataCombinedSliced.company_name %></td>
+                <td><%= dataCombinedSliced.company_id %></td>
+            </tr>
+        <%})%>
+        </tbody>
+      </table>
+  </div>				
+</div>
+</div>
+
+<script>
+
+  const searchBar=()=>{
+
+    let value=document.getElementById("search").value;
+  
+    const data = { state: value};
+  fetch('/api/searchBar', {
+  method: 'POST', // or 'PUT'
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(data),
+})
+.then(response => response.json())
+.then(data => {
+
+  console.log(data);
+  /// Dynamic data adding to the dom ...
+  if(data && data.customer.length>0)
+  {
+    console.log('Success:', data);
+
+    let bodyData=data.customer.reduce((acc,ele)=>{
+      acc+=`<ul style="border: 1px solid #acacac;width: 900px; height:35px; background:	#F0F0F0;font-size: 19px;font-size: 1.9rem;color: black;">
+        <li class="fa fa-search"> &nbsp;&nbsp ${ele.company_id} &nbsp;&nbsp <a href="/api/getBill/${ele.company_id}" target="_blank">${ele.company_name}</a></li>
+        </ul>`
+return acc;
+
+    },"")
+    document.getElementById("tablebody").innerHTML=bodyData
+  }
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
+
+}
+
+ const  getInvoice=()=>{
+  let data=document.getElementById("search").value;
+  let value=data.split(":")[1];
+
+
+  if(value && value.includes("invoice"))
+  {
+    // redirect to the invoice
+    window.open(`/api/getInvoice/${value}`, '_blank').focus();
+    //window.location.href=`/api/getInvoice/${value}`
+  }
+ else if(value && data.includes("bills"))
+  {
+    // redirect to the bills
+    window.open(`/api/getBill/${value}`, '_blank').focus();
+    //window.location.href=`/api/getInvoice/${value}`
+  }
+
+  else{
+    alert("Enter a valid Invoice ID or Bill ID or Customer Name")
+  }
+
+ }
+
+</script>
+</body>
+</html>

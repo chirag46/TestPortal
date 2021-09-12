@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+	.canvasjs-chart-canvas {
+  box-shadow: inset 0 3px 6px darkgray, 0 4px 6px lightgrey;
+  border-radius: 3px;
+}
+</style>
+<script>
+window.onload = function() {
+//chart 1 datapoints
+var paid="<%= perPaid %>";
+var unpaid="<%= perUnpaid %>";
+
+//chart 2 datapoints
+var x1=parseInt("<%= priceArray[0].companyID %>");var y1=parseInt("<%= priceArray[0].price %>");
+var x2=parseInt("<%= priceArray[1].companyID %>");var y2=parseInt("<%= priceArray[1].price %>");
+var x3=parseInt("<%= priceArray[2].companyID %>");var y3=parseInt("<%= priceArray[2].price %>");
+var x4=parseInt("<%= priceArray[3].companyID %>");var y4=parseInt("<%= priceArray[3].price %>");
+var x5=parseInt("<%= priceArray[4].companyID %>");var y5=parseInt("<%= priceArray[4].price %>");
+var x6=parseInt("<%= priceArray[5].companyID %>");var y6=parseInt("<%= priceArray[5].price %>");
+var x7=parseInt("<%= priceArray[6].companyID %>");var y7=parseInt("<%= priceArray[6].price %>");
+var x8=parseInt("<%= priceArray[7].companyID %>");var y8=parseInt("<%= priceArray[7].price %>");
+var x9=parseInt("<%= priceArray[8].companyID %>");var y9=parseInt("<%= priceArray[8].price %>");
+var x10=parseInt("<%= priceArray[9].companyID %>");var y10=parseInt("<%= priceArray[9].price %>");
+
+//chart 3 datapoints
+var x31=parseInt("<%= priceArray[0].companyID %>");var y31=parseInt("<%= priceArrayMobile[0].priceMobile %>");
+var x32=parseInt("<%= priceArray[1].companyID %>");var y32=parseInt("<%= priceArrayMobile[1].priceMobile %>");
+var x33=parseInt("<%= priceArray[2].companyID %>");var y33=parseInt("<%= priceArrayMobile[2].priceMobile %>");
+var x34=parseInt("<%= priceArray[3].companyID %>");var y34=parseInt("<%= priceArrayMobile[3].priceMobile %>");
+var x35=parseInt("<%= priceArray[4].companyID %>");var y35=parseInt("<%= priceArrayMobile[4].priceMobile %>");
+var x36=parseInt("<%= priceArray[5].companyID %>");var y36=parseInt("<%= priceArrayMobile[5].priceMobile %>");
+var x37=parseInt("<%= priceArray[6].companyID %>");var y37=parseInt("<%= priceArrayMobile[6].priceMobile %>");
+var x38=parseInt("<%= priceArray[7].companyID %>");var y38=parseInt("<%= priceArrayMobile[7].priceMobile %>");
+var x39=parseInt("<%= priceArray[8].companyID %>");var y39=parseInt("<%= priceArrayMobile[8].priceMobile %>");
+var x310=parseInt("<%= priceArray[9].companyID %>");var y310=parseInt("<%= priceArrayMobile[9].priceMobile %>");
+
+//chart4 datapoints
+var iphone="<%= iphonePer %>";
+var samsung="<%= samsungPer %>";
+var nokia="<%= nokiaPer %>";
+
+var chart = new CanvasJS.Chart("chartContainer1", {
+	animationEnabled: true,
+	//theme: "light2",
+	title: {
+		text: "Paid Users vs Unpaid Users",
+		horizontalAlign: "left",padding:3
+	},
+	data: [{
+		type: "pie",
+		startAngle: 240,
+		yValueFormatString: "##0.00\"%\"",
+		indexLabel: "{label} {y}",
+		dataPoints: [
+			{y: paid, label: "Paid Users",color: "#FFA07A"},
+			{y: unpaid, label: "Unpaid users",color: "#20B2AA"}
+		]
+	}]
+});
+chart.render();
+
+
+//chart 2
+
+var chart = new CanvasJS.Chart("chartContainer2", {
+	animationEnabled: true,
+	zoomEnabled: false,
+	title:{
+		text: "Top billed customers vs Bill for Broadband data consumption",
+		horizontalAlign: "left"
+	},
+	axisX: {
+		title:"Company ID of top billed customers",
+		minimum: 1,
+		maximum: 100,
+		interval:5
+	},
+	axisY:{
+		title: "Bill of Broadband data consumption",
+        minimum: 1000,
+		maximum: 1300
+	},
+	dataPointWidth: 20,
+	data: [{
+		dataPoints: [
+			{ x: x1, y: y1 },
+            { x: x2, y: y2 },
+            { x: x3, y: y3 },
+            { x: x4, y: y4 },
+            { x: x5, y: y5 },
+            { x: x6, y: y6 },
+            { x: x7, y: y7 },
+            { x: x8, y: y8 },
+            { x: x9, y: y9 },
+            { x: x10, y: y10 }
+		]
+	}] 
+});
+chart.render();
+
+//chart3
+var chart = new CanvasJS.Chart("chartContainer3",
+    {
+        animationEnabled: true,
+        title: {
+            text: "Top billed customers vs Bill for mobile data consumption ",
+			horizontalAlign: "left"
+        },
+        axisX: {
+            title:"Company ID of top billed customers",
+            minimum: 1,
+		    maximum: 100
+            //interval: 1,
+            //intervalType: "month"
+        },
+        axisY: {
+            title: "Bill of Mobile data consumption",
+            includeZero: false
+        },
+        data: [
+        {
+          type: "scatter",
+          dataPoints: [
+              { x: x31, y: y31 },
+              { x: x32, y: y32},
+              { x: x33, y: y33},
+              { x: x34, y: y34 },
+              { x: x35, y: y35 },
+              { x: x36, y: y36 },
+              { x: x37, y: y37 },
+              { x: x38, y: y38 },
+              { x: x39, y: y39 },
+              { x: x310, y: y310 }
+            ]
+        }
+        ]
+    });
+chart.render();
+
+//chart4
+var chart = new CanvasJS.Chart("chartContainer4", {
+	animationEnabled: true,
+	theme: "light1",
+	title:{
+		text: "customer Mobile Types",
+		horizontalAlign: "left",
+		padding:3
+	},
+	data: [{
+		type: "doughnut",
+		startAngle: 60,
+		innerRadius: 60,
+		indexLabelFontSize: 17,
+		indexLabel: "{label}",
+		dataPoints: [
+			{ y: iphone, label: "Iphone"},
+			{ y: samsung, label: "Samsung",color:"#DB7093"},
+			{ y: nokia, label: "Nokia",color:"#8FBC8F"}
+		]
+	}]
+});
+chart.render();
+
+}
+
+</script>
+</head>
+<body >	
+<%- include('header'); -%>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<br/><br/><br/><br/>
+<div id="chartContainer1" style="width: 45%; height: 300px;display: inline-block;  "></div>&ensp;&ensp;&ensp;&ensp;
+<div id="chartContainer2" style="width: 45%; height: 300px;display: inline-block; "></div><br/><br/>
+<div id="chartContainer3" style="width: 45%; height: 300px;display: inline-block;"></div>&ensp;&ensp;&ensp;&ensp;
+<div id="chartContainer4" style="width: 45%; height: 300px;display: inline-block;"></div>
+</div>
+</body>
+</html>
