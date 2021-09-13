@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1631375432832" clover="3.2.0">
-  <project timestamp="1631375432832" name="All files">
-    <metrics statements="442" coveredstatements="219" conditionals="82" coveredconditionals="15" methods="67" coveredmethods="26" elements="591" coveredelements="260" complexity="0" loc="442" ncloc="442" packages="3" files="10" classes="10"/>
+<coverage generated="1631428433457" clover="3.2.0">
+  <project timestamp="1631428433458" name="All files">
+    <metrics statements="442" coveredstatements="218" conditionals="82" coveredconditionals="15" methods="67" coveredmethods="25" elements="591" coveredelements="258" complexity="0" loc="442" ncloc="442" packages="3" files="10" classes="10"/>
     <package name="BillingPortalMtest">
-      <metrics statements="347" coveredstatements="180" conditionals="50" coveredconditionals="14" methods="46" coveredmethods="24"/>
+      <metrics statements="347" coveredstatements="179" conditionals="50" coveredconditionals="14" methods="46" coveredmethods="23"/>
       <file name="api.js" path="C:\Users\Chirag Shetty\Desktop\Saturday\BillingPortalMtest\api.js">
         <metrics statements="152" coveredstatements="15" conditionals="26" coveredconditionals="0" methods="20" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
@@ -160,7 +160,7 @@
         <line num="482" count="1" type="stmt"/>
       </file>
       <file name="apitest.js" path="C:\Users\Chirag Shetty\Desktop\Saturday\BillingPortalMtest\apitest.js">
-        <metrics statements="139" coveredstatements="110" conditionals="22" coveredconditionals="13" methods="17" coveredmethods="15"/>
+        <metrics statements="139" coveredstatements="109" conditionals="22" coveredconditionals="13" methods="17" coveredmethods="14"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -298,7 +298,7 @@
         <line num="444" count="1" type="stmt"/>
         <line num="447" count="1" type="stmt"/>
         <line num="482" count="1" type="stmt"/>
-        <line num="483" count="1" type="stmt"/>
+        <line num="483" count="0" type="stmt"/>
         <line num="486" count="1" type="stmt"/>
       </file>
       <file name="app.js" path="C:\Users\Chirag Shetty\Desktop\Saturday\BillingPortalMtest\app.js">
@@ -327,18 +327,18 @@
         <line num="32" count="1" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
         <line num="36" count="1" type="stmt"/>
-        <line num="37" count="8" type="stmt"/>
-        <line num="38" count="8" type="stmt"/>
+        <line num="37" count="7" type="stmt"/>
+        <line num="38" count="7" type="stmt"/>
         <line num="42" count="1" type="stmt"/>
         <line num="45" count="1" type="stmt"/>
         <line num="54" count="1" type="stmt"/>
         <line num="55" count="1" type="stmt"/>
         <line num="58" count="1" type="stmt"/>
         <line num="61" count="1" type="stmt"/>
-        <line num="62" count="8" type="stmt"/>
-        <line num="63" count="8" type="stmt"/>
-        <line num="64" count="8" type="stmt"/>
-        <line num="65" count="8" type="stmt"/>
+        <line num="62" count="7" type="stmt"/>
+        <line num="63" count="7" type="stmt"/>
+        <line num="64" count="7" type="stmt"/>
+        <line num="65" count="7" type="stmt"/>
         <line num="69" count="1" type="stmt"/>
         <line num="70" count="1" type="stmt"/>
         <line num="71" count="1" type="stmt"/>
@@ -352,12 +352,12 @@
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="12" count="9" type="stmt"/>
-        <line num="13" count="9" type="stmt"/>
-        <line num="14" count="9" type="stmt"/>
-        <line num="15" count="9" type="stmt"/>
-        <line num="18" count="9" type="stmt"/>
-        <line num="19" count="9" type="stmt"/>
+        <line num="12" count="8" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="14" count="8" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="18" count="8" type="stmt"/>
+        <line num="19" count="8" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
         <line num="31" count="1" type="stmt"/>

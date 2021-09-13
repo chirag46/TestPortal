@@ -29,6 +29,7 @@ describe('GET /apitest', function() {
   });
 });
 
+/*
 describe('GET /apitest/searchbar', function() {
   it('responds with html', function(done) {
     request(app)
@@ -39,6 +40,7 @@ describe('GET /apitest/searchbar', function() {
       
   });
 });
+*/
 
 describe('POST /apitest/searchBar', function() {
 
@@ -115,7 +117,6 @@ describe('GET /apitest/charts', function() {
 
     request(app)
       .get('/apitest/charts')  //route params to be sent 
-      .send({state: 'customer:A'})
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200)
